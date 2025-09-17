@@ -1,0 +1,193 @@
+.why-choose-header h2 {
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.3rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.reasons-grid {
+  margin-bottom: 5rem;
+}
+
+.reason-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.reason-card:hover {
+  border-color: var(--accent-color);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(14, 165, 233, 0.15);
+}
+
+.reason-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--surface-color), #f1f5f9);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.reason-card:hover .reason-icon {
+  border-color: var(--accent-color);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(6, 255, 165, 0.1));
+  transform: scale(1.05);
+}
+
+.reason-content {
+  flex: 1;
+}
+
+.reason-title {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.reason-description {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(14, 165, 233, 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(6, 255, 165, 0.2) 0%, transparent 50%);
+}
+
+.cta-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--white) !important;
+  opacity: 1 !important;
+  font-weight: 800;
+}
+
+.cta-subtitle {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  color: var(--white) !important;
+  opacity: 1 !important;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--white);
+  border: 2px solid var(--white);
+}
+
+.btn-outline-white:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .why-choose-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .reasons-grid {
+    margin-bottom: 3rem;
+  }
+
+  .reason-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+
+  .reason-card:hover {
+    transform: none;
+  }
+
+  .reason-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2.5rem;
+    margin: 0 auto;
+  }
+
+  .reason-title {
+    font-size: 1.3rem;
+  }
+
+  .reason-description {
+    font-size: 1rem;
+  }
+
+  .cta-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
