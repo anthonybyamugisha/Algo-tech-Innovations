@@ -41,8 +41,8 @@ const WhyChooseUs = () => {
     <section id="why-choose-us" className="section">
       <div className="container">
         <div className="why-choose-header text-center mb-4">
-          <h2>Why Choose Algo Tech Innovations?</h2>
-          <p className="section-subtitle">
+          <h2 className="text-white">Why Choose Algo Tech Innovations?</h2>
+          <p className="section-subtitle text-white">
             We're committed to delivering exceptional results that drive your business forward
           </p>
         </div>

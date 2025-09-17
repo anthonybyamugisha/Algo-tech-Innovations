@@ -16,7 +16,7 @@ const Hero = () => {
           <div className="hero-badge">
             <div className="company-logo">
               <div className="logo-circle">
-                <span className="logo-initials">AT</span>
+                <img src="/assets/images/logo.jpg" alt="Algo Tech Logo" className="company-logo-img" />
               </div>
               <div className="logo-text-hero">
                 <h1 className="company-name">Algo Tech</h1>
@@ -53,10 +53,6 @@ const Hero = () => {
             <div className="highlight-item">
               <div className="highlight-icon">📱</div>
               <h3>Mobile App Development</h3>
-            </div>
-            <div className="highlight-item">
-              <div className="highlight-icon">🎨</div>
-              <h3>Creative Graphic Design</h3>
             </div>
             <div className="highlight-item">
               <div className="highlight-icon">⚙️</div>

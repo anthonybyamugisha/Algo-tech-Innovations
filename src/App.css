@@ -1,9 +1,4 @@
-/* Reset and Global Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* Reset and Global Styles - removed duplicate */
 
 .App {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,6 +7,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Color Variables */
@@ -20,11 +18,18 @@
   --secondary-color: #2d3748;
   --accent-color: #0ea5e9;
   --background-color: #ffffff;
-  --surface-color: #f7fafc;
+  --surface-color: #f8fafc;
   --text-color: #1a202c;
   --text-light: #4a5568;
   --white: #ffffff;
   --border-radius: 50px;
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 25px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+  --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  --gradient-accent: linear-gradient(45deg, var(--accent-color), #06ffa5);
+  --glassmorphism: rgba(255, 255, 255, 0.9);
+  --glassmorphism-border: rgba(14, 165, 233, 0.1);
 }
 
 /* Typography */
@@ -64,35 +69,78 @@ p {
 }
 
 .section {
-  padding: 6rem 0;
+  padding: 8rem 0;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(14, 165, 233, 0.03) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .section-alt {
-  background-color: var(--surface-color);
+  background: linear-gradient(135deg, var(--surface-color) 0%, rgba(14, 165, 233, 0.02) 100%);
+  position: relative;
+}
+
+.section-alt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 80% 80%, rgba(14, 165, 233, 0.05) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 1.25rem 2.5rem;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  transition: all 0.4s ease;
   cursor: pointer;
   border: none;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn:hover::before {
+  left: 100%;
 }
 
 .btn-primary {
-  background-color: var(--primary-color);
+  background: var(--gradient-primary);
   color: var(--white);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .btn-primary:hover {
-  background-color: var(--secondary-color);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 .btn-outline {
@@ -107,13 +155,14 @@ p {
 }
 
 .btn-accent {
-  background-color: var(--accent-color);
+  background: var(--gradient-accent);
   color: var(--white);
+  box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
 }
 
 .btn-accent:hover {
-  background-color: #0284c7;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(14, 165, 233, 0.4);
 }
 
 /* Grid System */
@@ -136,17 +185,37 @@ p {
 
 /* Cards */
 .card {
-  background: var(--white);
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border: 1px solid #e2e8f0;
+  background: var(--glassmorphism);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.4s ease;
+  border: 1px solid var(--glassmorphism-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-accent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--accent-color);
 }
 
 /* Text Utilities */

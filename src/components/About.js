@@ -22,8 +22,8 @@ const About = () => {
                 build a strong online presence and leverage technology to grow.
               </p>
               <p>
-                We specialize in designing and developing modern websites, mobile applications, 
-                and graphics that make brands stand out in a competitive market.
+                We specialize in designing and developing modern websites and mobile applications 
+                that make brands stand out in a competitive market.
               </p>
             </div>
 

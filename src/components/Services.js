@@ -4,7 +4,6 @@ import './Services.css';
 const Services = () => {
   const services = [
     {
-      icon: '🌐',
       title: 'Website Development',
       description: 'Custom websites tailored to your brand',
       features: [
@@ -15,7 +14,6 @@ const Services = () => {
       ]
     },
     {
-      icon: '📱',
       title: 'App Development',
       description: 'Native and cross-platform mobile applications',
       features: [
@@ -26,18 +24,6 @@ const Services = () => {
       ]
     },
     {
-      icon: '🎨',
-      title: 'Graphics & Branding',
-      description: 'Complete visual identity solutions',
-      features: [
-        'Logos, flyers, posters design',
-        'Social media graphics',
-        'Full professional brand identity packages',
-        'Print and digital marketing materials'
-      ]
-    },
-    {
-      icon: '⚙️',
       title: 'Frontend & Backend Solutions',
       description: 'Complete full-stack development',
       features: [
@@ -60,8 +46,8 @@ const Services = () => {
     <section id="services" className="section">
       <div className="container">
         <div className="services-header text-center mb-4">
-          <h2>What Makes Our Services Exceptional?</h2>
-          <p className="section-subtitle">
+          <h2 className="text-white">What Makes Our Services Exceptional?</h2>
+          <p className="section-subtitle text-white">
             Comprehensive digital solutions designed to transform your business and drive growth
           </p>
         </div>
@@ -69,9 +55,6 @@ const Services = () => {
         <div className="services-grid grid grid-2">
           {services.map((service, index) => (
             <div key={index} className="service-card card">
-              <div className="service-icon">
-                {service.icon}
-              </div>
               <h3 className="service-title">{service.title}</h3>
               <p className="service-description">{service.description}</p>
               <ul className="service-features">
