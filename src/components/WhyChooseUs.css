@@ -1,14 +1,19 @@
 /* Why Choose Us Header Section */
 .why-choose-header {
-  background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(255, 255, 255, 0.9) 100%);
+  background: linear-gradient(135deg, 
+    rgba(14, 165, 233, 0.15) 0%, 
+    rgba(6, 255, 165, 0.12) 25%,
+    rgba(147, 51, 234, 0.08) 50%,
+    rgba(236, 72, 153, 0.06) 75%,
+    rgba(255, 255, 255, 0.9) 100%);
   border-radius: 24px;
   padding: 4rem 3rem;
   margin-bottom: 4rem;
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(14, 165, 233, 0.2);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 0 60px rgba(14, 165, 233, 0.1);
 }
 
 .why-choose-header::before {
@@ -63,14 +68,41 @@
   border-radius: 16px;
   padding: 2.5rem;
   border: 2px solid transparent;
-  transition: all 0.3s ease;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transform: translateX(0) scale(1);
+  opacity: 0;
+  animation: reasonCardSlide 1.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  transform-style: preserve-3d;
 }
+
+@keyframes reasonCardSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) translateY(60px) scale(0.6) rotateX(30deg) rotateY(-10deg);
+    filter: blur(8px);
+  }
+  60% {
+    opacity: 0.7;
+    transform: translateX(-25px) translateY(15px) scale(0.9) rotateX(8deg) rotateY(-3deg);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1) rotateX(0deg) rotateY(0deg);
+    filter: blur(0px);
+  }
+}
+
+.reason-card:nth-child(1) { animation-delay: 0.2s; }
+.reason-card:nth-child(2) { animation-delay: 0.5s; }
+.reason-card:nth-child(3) { animation-delay: 0.8s; }
 
 .reason-card:hover {
   border-color: var(--accent-color);
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(14, 165, 233, 0.15);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(14, 165, 233, 0.2);
+  background: linear-gradient(135deg, var(--white) 0%, rgba(14, 165, 233, 0.02) 100%);
 }
 
 .reason-icon {
@@ -84,13 +116,14 @@
   align-items: center;
   justify-content: center;
   border: 2px solid #e2e8f0;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .reason-card:hover .reason-icon {
   border-color: var(--accent-color);
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(6, 255, 165, 0.1));
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
 }
 
 .reason-content {
@@ -103,6 +136,12 @@
   font-weight: 700;
   margin-bottom: 1rem;
   line-height: 1.3;
+  transition: all 0.3s ease;
+}
+
+.reason-card:hover .reason-title {
+  color: var(--accent-color);
+  transform: translateY(-2px);
 }
 
 .reason-description {
@@ -110,11 +149,21 @@
   color: var(--text-light);
   line-height: 1.6;
   margin: 0;
+  transition: all 0.3s ease;
+}
+
+.reason-card:hover .reason-description {
+  color: var(--text-color);
 }
 
 /* CTA Section */
 .cta-section {
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  background: linear-gradient(135deg, 
+    var(--primary-color) 0%, 
+    #1e293b 25%,
+    var(--secondary-color) 50%,
+    #0f172a 75%,
+    #020617 100%);
   border-radius: 20px;
   padding: 4rem 2rem;
   position: relative;
@@ -128,8 +177,27 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 70%, rgba(14, 165, 233, 0.3) 0%, transparent 50%),
-              radial-gradient(circle at 70% 30%, rgba(6, 255, 165, 0.2) 0%, transparent 50%);
+  background: 
+    radial-gradient(circle at 25% 75%, rgba(14, 165, 233, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 75% 25%, rgba(6, 255, 165, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.25) 0%, transparent 45%);
+  animation: ctaGlow 16s ease-in-out infinite;
+}
+
+@keyframes ctaGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  33% {
+    opacity: 0.8;
+    transform: scale(1.02) rotate(0.3deg);
+  }
+  66% {
+    opacity: 0.9;
+    transform: scale(0.98) rotate(-0.2deg);
+  }
 }
 
 .cta-content {
@@ -173,30 +241,31 @@
   color: var(--primary-color);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Enhanced Responsive Design */
+/* Extra Small Devices */
+@media (max-width: 320px) {
   .why-choose-header {
-    padding: 2.5rem 2rem;
-    margin-bottom: 3rem;
+    padding: 1.5rem 1rem;
+    margin-bottom: 2rem;
   }
 
   .why-choose-header h2 {
-    font-size: 2.2rem;
+    font-size: 1.6rem;
   }
 
   .why-choose-header .section-subtitle {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
   }
 
   .reasons-grid {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   .reason-card {
     flex-direction: column;
     text-align: center;
-    padding: 2rem;
-    gap: 1.5rem;
+    padding: 1.5rem;
+    gap: 1rem;
   }
 
   .reason-card:hover {
@@ -204,30 +273,99 @@
   }
 
   .reason-icon {
-    width: 70px;
-    height: 70px;
-    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
     margin: 0 auto;
   }
 
   .reason-title {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
 
   .reason-description {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .cta-section {
-    padding: 3rem 1.5rem;
+    padding: 2rem 1rem;
   }
 
   .cta-title {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 
   .cta-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 220px;
+  }
+}
+
+/* Small Mobile Devices */
+@media (min-width: 321px) and (max-width: 480px) {
+  .why-choose-header {
+    padding: 2rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .why-choose-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .why-choose-header .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .reasons-grid {
+    margin-bottom: 2.5rem;
+  }
+
+  .reason-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.75rem;
+    gap: 1.25rem;
+  }
+
+  .reason-card:hover {
+    transform: none;
+  }
+
+  .reason-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 2.25rem;
+    margin: 0 auto;
+  }
+
+  .reason-title {
+    font-size: 1.2rem;
+  }
+
+  .reason-description {
+    font-size: 0.95rem;
+  }
+
+  .cta-section {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .cta-title {
+    font-size: 1.8rem;
+  }
+
+  .cta-subtitle {
+    font-size: 1.05rem;
   }
 
   .cta-buttons {
@@ -237,6 +375,6 @@
 
   .btn {
     width: 100%;
-    max-width: 300px;
+    max-width: 250px;
   }
 }

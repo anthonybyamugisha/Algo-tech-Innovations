@@ -32,7 +32,7 @@ const Header = () => {
           </nav>
 
           <div className="header-actions">
-            <button onClick={() => scrollToSection('contact')} className="btn btn-primary">
+            <button onClick={() => scrollToSection('contact')} className="btn btn-primary header-cta-btn">
               Get Started
             </button>
           </div>
