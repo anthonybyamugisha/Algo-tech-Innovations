@@ -71,7 +71,7 @@ const About = () => {
               <div className="stack-category">
                 <h4>Mobile & Design</h4>
                 <div className="tech-items">
-                  <span className="tech-item">React Native</span>
+                  <span className="tech-item">Flutter</span>
                   <span className="tech-item">UI/UX Design</span>
                   <span className="tech-item">Graphic Design</span>
                   <span className="tech-item">Brand Identity</span>
